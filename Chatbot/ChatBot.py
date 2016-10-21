@@ -1,7 +1,6 @@
 import random
 import wikipedia
-import json
-
+import time
 
 stopWords = open("stopwords.txt", "r+")
 happyWords = open("happyWords.txt", "r+")
@@ -9,7 +8,7 @@ sadWords = open("sadWords.txt", "r+")
 #print stopWords
 #happyWords.write("good")
 #happyWords.close()
-#pr
+
 
 
 welcomePhrases = ("Hey", "Yo", "Hello", "Hi", "Welcome", "Bonjour")
@@ -20,6 +19,9 @@ def findKeyword(words):
     for word in words:
         if word.lower() not in stopWords: return word
     
+def wikiSearch():
+    
+    print "Did you mean " + research + ", " + wikipedia.summary(research, sentences=2) + "\n"
     
 while True: 
       
@@ -31,20 +33,64 @@ while True:
     response = raw_input("> ")
     
     name = raw_input("What is your name?\n > ")
-    print("Hello " + name)
     
-    age = input("How old are you?\n >")
+    splitWords = name.split(" ")
+    keyWord = findKeyword(splitWords)
+    print(random.choice(welcomePhrases) + " " + keyWord)
+    time.sleep(1)
+    print("I am a chatbot called...")
+    time.sleep(2)
+    print("Chatbot")
+        
+    age = input("How old are you " + name + "?\n >")
     year = 2016 - age
     print("Ah so you were born in " + str(year))
     
     if (year == 1996):
         print("Sophie Turner was also born that year")
+    elif (year == 1995):
+        print("RJ Cycler was also born that year")
+    elif (year == 1997):
+        print("Chloe Grace Moretz was also born that year")
+    elif (year >= 1998):
+        print("You're young, go back to school!")
+    elif (year <= 1994):
+        print("You oldy! Go back to the carehome")
 
+    print("Is there anything you would like to learn about? ")
+    research = raw_input()
+    print(" ")      
+    wikiSearch() 
     
-    response = raw_input("> ")
-    if (response == "What she order?"):
-        print("Fish Fillet")
+    userInput = raw_input("Is there anything else you would like to learn about?\n >")
+       
         
-
-    research = raw_input("Is there anything you would like to learn about?")
-    print "Did you mean " + research + "," + wikipedia.summary(research, sentences=2)
+    if (userInput == "yes"):
+        print("Please enter what you want to search \n >")
+        research = raw_input()
+        wikiSearch()
+        
+    
+    else :
+        print("Please type yes or no  >")
+        userInput = raw_input()
+        
+    favColour = raw_input("Okay then, what is your favourite colour?\n >")
+    
+    if (favColour == red):
+        print("Ahh the colour of love, shame I don't have feelings")
+    
+    elif (favColour == green):
+        print("That's my favourite colour too!")
+    
+    elif(favColour == blue):
+        print("That blue my mind, *robotic laughter*")
+        
+    elif(favColour == orange):
+        print("Also a tasty fruit, good choice!")
+        
+    else:
+        print("That's not a colour")
+        
+        
+        

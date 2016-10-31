@@ -30,6 +30,7 @@ couldn't
 did
 didn't
 do
+my
 does
 doesn't
 doing
@@ -42,6 +43,7 @@ for
 from
 further
 had
+hello
 hadn't
 has
 hasn't
@@ -83,6 +85,7 @@ most
 mustn't
 my
 myself
+name
 no
 nor
 not
@@ -153,6 +156,7 @@ where
 where's
 which
 while
+yes
 who
 who's
 whom
